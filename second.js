@@ -5,9 +5,6 @@ function init() {
 	}
 }
 
-
-
-
 function Drawable() {
 	this.init = function (x, y, width, height) {
 		//default vars
@@ -96,7 +93,7 @@ function Pool(maxSize) {
 	//used for ship to be able to get 2 bullets at once if only the get() fx is used twice,
 	// ship is able to fire and only ahve 1 bullet spawn insted of two
 
-	this.getTwo = function (x, y, speed) {
+	this.getTwo = function (x1, y1, speed1, x2, y2, speed2) {
 		if(!pool[size-1].alive && !pool[size-2].alive) {
 			this.get(x1, y1, speed1);
 			this.get(x2, y2, speed2);
@@ -133,7 +130,7 @@ function Bullet () {
 	// use dirty rectangle to erase bullet and moves it. returns true if bullet moved off screen
 	// indicating the bullet is ready to be cleared by pool, otherwise draws bullet
 	this.draw = function () {
-		rhis.context.clearRect(this.x, this.y, this.width, this.height);
+		this.context.clearRect(this.x, this.y, this.width, this.height);
 		this.y -= this.speed;
 		if (this.y <= 0 - this.height) {
 			return true;
@@ -150,7 +147,7 @@ function Bullet () {
 		this.alive =false;
 	};
 }
-Bullet.prototype = new Drawable();
+Bullet.prototype = new Drawable ();
 
 
 // Create ship obj that the palyer controls. the ship is drawn on ship canvas
@@ -198,7 +195,7 @@ function Ship() {
 		}
 		if (KEY_STATUS.space && counter >= fireRate) {
 			this.fire();
-			coutner = 0;
+			counter = 0;
 		}
 	};
 	//fire two bullets
@@ -266,9 +263,11 @@ function Game() {
 			Background.prototype.context = this.bgContext;
 			Background.prototype.canvasWidth = this.bgCanvas.width;
 			Background.prototype.canvasHeight = this.bgCanvas.height;
+
 			Ship.prototype.context = this.shipContext;
 			Ship.prototype.canvasWidth = this.shipCanvas.width;
 			Ship.prototype.canvasHeight = this.shipCanvas.height;
+
 			Bullet.prototype.context = this.mainContext;
 			Bullet.prototype.canvasWidth = this.mainCanvas.width;
 			Bullet.prototype.canvasHeight = this.mainCanvas.height;
