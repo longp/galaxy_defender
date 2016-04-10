@@ -1,3 +1,21 @@
+
+
+//added width and height attr to canvas with prop ratio
+$('canvas#background').attr({
+	"width": 600,
+	"height": 360});
+$('canvas#ship').attr({
+	"width": 600,
+	"height": 360});
+$('canvas#main').attr({
+	"width": 600,
+	"height": 360});
+
+
+
+
+
+// game oobbj
 var game = new Game();
 function init() {
 	if(game.init()) {
@@ -38,11 +56,11 @@ var imageRepository = new function () {
 	}
 
 	//setting imgs src
-	this.background.src= "imgs/bg.png"
-	this.spaceship.src= "imgs/ship.png"
-	this.bullet.src = "imgs/bullet.png"
-	this.enemy.src = "imgs/enemy.png"
-	this.enemyBullet.src = "imgs/bullet_enemy.png";
+	this.background.src= "../imgs/bg.png"
+	this.spaceship.src= "../imgs/ship.png"
+	this.bullet.src = "../imgs/bullet.png"
+	this.enemy.src = "../imgs/enemy.png"
+	this.enemyBullet.src = "../imgs/bullet_enemy.png";
 
 }
 
@@ -75,7 +93,7 @@ function Background() {
 	this.context.drawImage(imageRepository.background, this.x, this.y-this.canvasHeight);
 
 	//if the img is scrolled off screen reset it
-	if(this.y >= this.canvasHeight) 
+	if(this.y >= this.canvasHeight)
 		this.y = 0;
 	};
 }
@@ -109,7 +127,7 @@ function Pool(maxSize) {
 				bullet.init(0,0, imageRepository.bullet.width, imageRepository.enemy.height);
 				pool[i]= bullet;
 			}
-		}		
+		}
 	};
 	//grabs last item in list and inits it and pushes it to fornt of array
 	this.get = function (x, y, speed) {
@@ -138,7 +156,7 @@ function Pool(maxSize) {
 					pool.push((pool.splice(i,1))[0]);
 				}
 			}
-			else 
+			else
 				break;
 		}
 	};
@@ -320,7 +338,7 @@ for (code in KEY_CODES) {
 	KEY_STATUS[ KEY_CODES[ code ]] =false;
 }
 
-// sets up document to listen to onkeydown events fired when any key on 
+// sets up document to listen to onkeydown events fired when any key on
 // keyboard is pressed down. when a key is pressed, it sets the appropriate direciton to true
 // to let us know wich key it was
 
@@ -351,7 +369,7 @@ function Game() {
 		this.bgCanvas = document.getElementById("background");
 		this.shipCanvas = document.getElementById('ship');
 		this.mainCanvas = document.getElementById('main');
-		
+
 		if (this.bgCanvas.getContext) {
 			this.bgContext = this.bgCanvas.getContext('2d');
 			this.shipContext =this.shipCanvas.getContext('2d');
@@ -423,11 +441,11 @@ function animate () {
 }
 
 window.requestAnimFrame = (function(){
-	return  window.requestAnimationFrame       || 
-			window.webkitRequestAnimationFrame || 
-			window.mozRequestAnimationFrame    || 
-			window.oRequestAnimationFrame      || 
-			window.msRequestAnimationFrame     || 
+	return  window.requestAnimationFrame       ||
+			window.webkitRequestAnimationFrame ||
+			window.mozRequestAnimationFrame    ||
+			window.oRequestAnimationFrame      ||
+			window.msRequestAnimationFrame     ||
 			function(/* function */ callback, /* DOMElement */ element){
 				window.setTimeout(callback, 1000 / 60);
 			};
