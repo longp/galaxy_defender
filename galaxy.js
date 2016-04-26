@@ -1,6 +1,6 @@
 
 
-//added width and height attr to canvas with prop ratio
+// //added width and height attr to canvas with prop ratio
 $('canvas#background').attr({
 	"width": 600,
 	"height": 360});
@@ -15,7 +15,7 @@ $('canvas#main').attr({
 
 
 
-// game oobbj
+// game obj
 var game = new Game();
 function init() {
 	if(game.init()) {
@@ -55,12 +55,19 @@ var imageRepository = new function () {
 		imageLoaded();
 	}
 
-	//setting imgs src
-	this.background.src= "../imgs/bg.png"
-	this.spaceship.src= "../imgs/ship.png"
-	this.bullet.src = "../imgs/bullet.png"
-	this.enemy.src = "../imgs/enemy.png"
-	this.enemyBullet.src = "../imgs/bullet_enemy.png";
+	// //setting imgs src
+	// this.background.src= "../imgs/bg.png"
+	// this.spaceship.src= "../imgs/ship.png"
+	// this.bullet.src = "../imgs/bullet.png"
+	// this.enemy.src = "../imgs/enemy.png"
+	// this.enemyBullet.src = "../imgs/bullet_enemy.png";
+
+	// //setting imgs src for test
+	this.background.src= "imgs/bg.png"
+	this.spaceship.src= "imgs/ship.png"
+	this.bullet.src = "imgs/bullet.png"
+	this.enemy.src = "imgs/enemy.png"
+	this.enemyBullet.src = "imgs/bullet_enemy.png";
 
 }
 
