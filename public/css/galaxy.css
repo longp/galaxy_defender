@@ -1,0 +1,53 @@
+body{
+  background-color:lightblue
+}
+  canvas {
+    position: absolute;
+    margin-top: 20vh;
+    /*margin-left:50vh;*/
+    background: transparent;
+  }
+  #background {
+    z-index: -2;
+  }
+  #main {
+    z-index: -1;
+  }
+  #ship {
+    z-index: 0;
+  }
+  .score {
+    position: absolute;
+    margin-top: 15vh;
+    color: #FF7F00;
+    font-family: Helvetica, sans-serif;
+    cursor: default;
+  }
+  .game-over {
+    position: absolute;
+    margin-top: 17vh;
+    margin-left: 5vh;
+    color: #FF7F00;
+    font-family: Helvetica, sans-serif;
+    font-size: 3em;
+    cursor: default;
+    display: none;
+  }
+  .game-over span {
+    font-size: 20px;
+    cursor: pointer;
+    position: relative;
+    margin-top: 17vh;
+  }
+  .game-over span:hover {
+    color: #FFD700;
+  }
+  .loading {
+    position: absolute;
+    top: 100px;
+    left: 210px;
+    color: #FF7F00;
+    font-family: Helvetica, sans-serif;
+    font-size: 30px;
+    cursor: default;
+  }

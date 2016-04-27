@@ -1,25 +1,40 @@
 <!DOCTYPE html>
 <html>
 	<head>
-	<!-- <link rel="stylesheet" type="text/css" href="../css/galaxy.css"> -->
-	<link rel="stylesheet" type="text/css" href="galaxy.css">
 		<title>Space Shooter Demo</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+	<link rel="stylesheet" href="/css/galaxy.css" media="screen" title="no title" charset="utf-8">
 	</head>
-	<body>
-		<!-- The canvas for the panning background -->
-		<canvas id="background">
-			Your browser does not support canvas. Please try again with a different browser.
-		</canvas>
-		<!-- The canvas for all enemy ships and bullets -->
-		<canvas id="main" >
-		</canvas>
-		<!-- The canvas the ship uses (can only move up
-         one forth the screen.) -->
-		<canvas id="ship" >
-		</canvas>
-		<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
-	  <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-		<!-- <script src="../js/galaxy.js"></script> -->
-		<script src="galaxy.js"></script>
+	<body >
+		<div class="container">
+			<div class="row ">
+				<div class="col-md-6">
+					<!-- The canvas for the panning background -->
+					<canvas id="background" >
+						Your browser does not support canvas. Please try again with a different browser.
+					</canvas>
+					<!-- The canvas for all enemy ships and bullets -->
+					<canvas id="main" >
+					</canvas>
+					<!-- The canvas the ship uses (can only move up
+							 one forth the screen. -->
+					<canvas id="ship" >
+					</canvas>
+				</div>
+				<div class="col-md-6">
+					<div  class="score" >SCORE: <span id="score" ></span></div>
+					<div class="game-over" id="game-over">GAME OVER<p><span onclick="game.restart()">Restart</span></p></div>
+					<div class="loading" id="loading">LOADING...<p>Please wait</p></div>
+				</div>
+			</div>
+			<div class="row">
+				<h1>INSTRUCTIONS</h1>
+				<span>Arrow keys to move and spacebar to shoot have fun!</span>
+			</div>
+		</div>
+
+
+		<script src="https://code.jquery.com/jquery-2.2.3.min.js"></script>
+		<script src="/js/galaxy.js"></script>
 	</body>
 </html>
